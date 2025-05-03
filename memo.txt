@@ -43,3 +43,13 @@ flutter build appbundle --release
 ブラウザでのデバッグはshared_preferencesに保存したデータが消える
 
 
+[githubのリポジトリで管理]
+githubにリポジトリを新規作成
+
+# プロジェクトディレクトリに移動してから
+git init                           # Git管理を開始（すでにinit済みなら不要）
+git add .                         # 全てのファイルをステージング
+git commit -m "初回コミット"        # 初回コミット
+git branch -M master
+git remote add origin https://github.com/avso/qiita_client_app.git
+git push -u origin master
