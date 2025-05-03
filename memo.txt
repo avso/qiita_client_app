@@ -1,0 +1,45 @@
+[Commands]
+
+[build_runner]
+flutter packages pub run build_runner build --delete-conflicting-outputs
+flutter packages pub run build_runner watch --delete-conflicting-outputs
+
+[Deep Link]
+adb -e shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "qiitaclientapp://dev.qiitaclientapp.app/oauth/authorize/callback"'
+adb -e shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "qiitaclientapp://dev.qiitaclientapp.app/oauth/authorize/callback?code=9f8780a08d4423bd182d67add569f7aa668628ba"'
+adb -e shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "qiitaclientapp://dev.qiitaclientapp.app/oauth/authorize/callback?code=ac6d1036484f9f452d70f8f3a4eb3d0ce5247e2c"'
+
+adb -e shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "qiitaclientapp://dev.qiitaclientapp.app/launch"'
+
+[chromeでデバッグ]
+flutter run --debug -d chrome --web-renderer html
+
+
+[実機でデバッグ]
+flutter devices
+
+flutter run -d SCV7N18530002234
+
+
+[本番モードで検証]
+flutter build apk
+
+C:\src\qiita_client_app\build\app\outputs\flutter-apk\app-release.apk
+
+
+[Flutterとパッケージのバージョンアップ]
+flutter upgrade --force
+flutter clean
+flutter pub get
+flutter pub upgrade
+
+[アプリの署名に使う証明書を作成]
+keytool -genkey -v -keystore C:/Users/msyk/Desktop/KeyStore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key1234
+
+[アプリバンドル形式でリリース用ビルド]
+flutter build appbundle --release
+
+[メモ]
+ブラウザでのデバッグはshared_preferencesに保存したデータが消える
+
+
